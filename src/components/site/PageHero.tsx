@@ -55,7 +55,3 @@ export function SectionHeading({
     </div>
   );
 }
-
-export function DonateBand() {
-  return null;
-}
