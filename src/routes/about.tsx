@@ -9,16 +9,16 @@ import { org } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About WSPC — Our Story, Mission & Vision" },
+      { title: "Who We Are — WSPC, Free Dialysis Since 2009" },
       {
         name: "description",
         content:
-          "Founded by Prof. (Dr.) Iffat Yazdani, the Welfare Society for Patient Care helps underprivileged kidney patients in Karachi access life-saving treatment.",
+          "Founded in 2009 by Prof. Dr Iffat Yazdani, the Welfare Society for Patient Care provides free dialysis and medical care in Karachi. Audited annually by Ernst & Young.",
       },
-      { property: "og:title", content: "About WSPC — Our Story, Mission & Vision" },
+      { property: "og:title", content: "Who We Are — Welfare Society for Patient Care" },
       {
         property: "og:description",
-        content: "How a Karachi welfare society became a lifeline for kidney patients across Pakistan.",
+        content: "A trusted Karachi NGO making sure financial hardship never blocks life-saving care.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -31,46 +31,44 @@ const values = [
   {
     Icon: Eye,
     title: "Our vision",
-    text: "To develop a healthy, aware, empowered and equitable society, where essential treatment and medical aid is available across the board.",
+    text: "A healthier, more equitable society where essential medical care is available to all, regardless of financial status.",
   },
   {
     Icon: Target,
     title: "Our mission",
-    text: "To expand access to essential, life-saving treatment for kidney patients, and to keep improving the facilities and resources available to them.",
+    text: "To provide free dialysis and medical care to those who cannot afford it — and to build a dedicated kidney treatment hospital for the growing number of patients in need.",
   },
   {
     Icon: HandHeart,
-    title: "Our promise",
-    text: "Dignified, compassionate care for every patient, and honest, transparent use of every donation we receive.",
+    title: "Transparency",
+    text: `Registered under the ${org.registrationAct} (${org.registrationNo}), with our finances audited every year by ${org.auditor}.`,
   },
 ];
 
 function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About us" title="Treatment shouldn't depend on what you can afford">
-        WSPC is a non-profit welfare society in Clifton, Karachi, dedicated to underprivileged
-        kidney patients who need regular dialysis to survive.
+      <PageHero eyebrow="Who we are" title="Financial hardship should never block life-saving care">
+        WSPC is a trusted non-profit in Clifton, Karachi, providing free dialysis and medical care
+        to people who cannot afford treatment.
       </PageHero>
 
       <section className="mx-auto grid max-w-7xl gap-14 px-6 py-24 md:grid-cols-2 md:items-center">
         <div>
-          <SectionHeading eyebrow="Our story" title="Started by a doctor who refused to turn patients away" />
+          <SectionHeading eyebrow="Our story" title={`A simple, powerful mission since ${org.founded}`} />
           <div className="mt-6 space-y-4 leading-relaxed text-foreground/85">
             <p>
-              {org.name} was founded by <strong>{org.founder}</strong>, a nephrologist who saw
-              first-hand how many patients were forced to skip or stop dialysis simply because
-              they could not pay for it.
+              {org.name} was founded in {org.founded} by <strong>{org.founder}</strong> with one
+              aim: to provide free dialysis and medical care to those who cannot afford life-saving
+              treatment.
             </p>
             <p>
-              The society was formally established in {org.founded} to raise funds and organise
-              free treatment for these patients. Its clinical work is carried out in association
-              with <strong>{org.hospital}</strong>, where patients receive dialysis, consultations
-              and follow-up care.
+              Today we sponsor patients through <strong>{org.hospital}</strong>, covering their
+              dialysis, medical and surgical treatment.
             </p>
             <p>
-              Today WSPC supports over a hundred regular dialysis patients — aged from children to
-              the elderly — who travel to Karachi from many parts of Pakistan.
+              Our work is only possible through the generosity of our donors. Every contribution
+              helps us support patients in need.
             </p>
           </div>
         </div>

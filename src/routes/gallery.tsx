@@ -49,7 +49,10 @@ function GalleryPage() {
 
   return (
     <>
-      <PageHero eyebrow="Gallery" title="Moments from our centre and community" />
+      <PageHero eyebrow="Gallery" title="Moments from our centre and community">
+        We're proud to serve our community in Karachi and help people who otherwise could not
+        access life-saving treatment. Here is a selection of images of our work over the years.
+      </PageHero>
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter photos">
