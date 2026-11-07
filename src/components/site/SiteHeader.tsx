@@ -1,19 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { Heart, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 
+import emblem from "@/assets/wspc_emblem.png.asset.json";
 import { navLinks, org } from "@/lib/site";
 
 export function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
     <Link to="/" className="flex items-center gap-3" aria-label={`${org.name} home`}>
-      <span
-        className={`flex h-10 w-10 items-center justify-center rounded-full ${
-          inverted ? "bg-primary-foreground text-primary-deep" : "bg-primary text-primary-foreground"
-        }`}
-      >
-        <Heart className="h-5 w-5" fill="currentColor" />
-      </span>
+      <img
+        src={emblem.url}
+        alt=""
+        width={48}
+        height={48}
+        className="h-11 w-11 shrink-0 object-contain"
+      />
       <span className="leading-tight">
         <span
           className={`block font-display text-xl font-semibold ${inverted ? "text-primary-foreground" : "text-primary-deep"}`}
