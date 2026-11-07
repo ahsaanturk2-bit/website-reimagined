@@ -32,4 +32,5 @@ use the editor.
 ## Project rules
 - Keep all organisation facts (contact, bank details, stats, nav links) in `src/lib/site.ts`; pages import from it so details are updated in one place.
 - Keep board portrait mappings alongside board facts in `src/lib/site.ts` using CDN asset pointers; unmatched members retain initials to avoid assigning an incorrect photo.
+- Site photos live in `src/lib/photos.ts` and supporter logos in `src/lib/site.ts`, both as CDN asset pointers, so images are swapped in one place.
 - Shared site chrome (header, footer, page heroes, donate band) lives in `src/components/site/` and is rendered from `__root.tsx`, so every page gets the same layout.
