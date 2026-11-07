@@ -1,25 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
 
-import motherSonImg from "@/assets/mother-son.jpg";
-import heroImg from "@/assets/hero-dialysis-care.jpg";
-import physioImg from "@/assets/physiotherapy.jpg";
 import { DonateBand } from "@/components/site/DonateBand";
 import { PageHero } from "@/components/site/PageHero";
+import { testimonials } from "@/lib/site";
 
 export const Route = createFileRoute("/stories")({
   head: () => ({
     meta: [
-      { title: "Patient Stories — Lives Kept Going by Dialysis | WSPC" },
+      { title: "Patient Feedback — What Our Patients Say | WSPC" },
       {
         name: "description",
         content:
-          "Stories of kidney patients and families in Karachi who receive free dialysis through the Welfare Society for Patient Care.",
+          "Feedback from patients and families who receive dialysis and care through the Welfare Society for Patient Care in Karachi.",
       },
-      { property: "og:title", content: "Patient Stories | WSPC" },
+      { property: "og:title", content: "Patient Feedback | WSPC" },
       {
         property: "og:description",
-        content: "Meet the patients and families whose lives your support keeps going.",
+        content: "Patients and families share their experience of care at WSPC.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -28,69 +26,26 @@ export const Route = createFileRoute("/stories")({
   component: StoriesPage,
 });
 
-// Representative stories — replace with real, consented patient stories from WSPC.
-const stories = [
-  {
-    img: motherSonImg,
-    alt: "A mother holding her son's hand during his dialysis",
-    name: "A young patient, 16",
-    place: "Interior Sindh",
-    quote:
-      "My son was diagnosed when he was fourteen. We sold what we had for the first few sessions. Since WSPC took him in, he has not missed a single one — and he has gone back to school.",
-    by: "His mother",
-  },
-  {
-    img: heroImg,
-    alt: "An elderly patient resting during dialysis while a nurse checks on him",
-    name: "A retired labourer, 68",
-    place: "Karachi",
-    quote:
-      "Three times a week I come here. The nurses know my name, they know my family. Without this place I would not be alive today.",
-    by: "Patient",
-  },
-  {
-    img: physioImg,
-    alt: "A physiotherapist helping an elderly woman with leg exercises",
-    name: "A grandmother, 72",
-    place: "Hyderabad",
-    quote:
-      "After months of weakness I could barely walk. With physiotherapy alongside my dialysis, I can now walk to the market on my own again.",
-    by: "Patient",
-  },
-];
-
 function StoriesPage() {
   return (
     <>
-      <PageHero eyebrow="Patient stories" title="Every session is another week with family">
-        Behind every dialysis chair is a person, a family and a future. Names and details are kept
-        private to protect our patients.
+      <PageHero eyebrow="Feedback from our patients" title="In their own words">
+        Patients and their families tell us what care at WSPC and Clifton Kidney Hospital means to
+        them.
       </PageHero>
 
-      <section className="mx-auto max-w-7xl space-y-20 px-6 py-24">
-        {stories.map((s, i) => (
-          <article
-            key={s.name}
-            className={`grid items-center gap-10 md:grid-cols-2 ${i % 2 ? "md:[&>img]:order-2" : ""}`}
+      <section className="mx-auto grid max-w-7xl gap-6 px-6 py-24 md:grid-cols-3">
+        {testimonials.map((t) => (
+          <figure
+            key={t.name}
+            className="flex flex-col rounded-3xl border border-border bg-card p-8 shadow-soft"
           >
-            <img
-              src={s.img}
-              alt={s.alt}
-              width={1200}
-              height={912}
-              loading="lazy"
-              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-soft"
-            />
-            <div>
-              <Quote className="h-10 w-10 text-highlight" />
-              <blockquote className="mt-4 font-display text-2xl leading-snug text-primary-deep md:text-3xl">
-                “{s.quote}”
-              </blockquote>
-              <p className="mt-6 font-semibold text-foreground">
-                {s.by} · <span className="font-normal text-muted-foreground">{s.name}, {s.place}</span>
-              </p>
-            </div>
-          </article>
+            <Quote className="h-9 w-9 text-highlight" />
+            <blockquote className="mt-5 flex-1 font-display text-xl leading-snug text-primary-deep">
+              “{t.quote}”
+            </blockquote>
+            <figcaption className="mt-6 font-semibold text-foreground">{t.name}</figcaption>
+          </figure>
         ))}
       </section>
 
@@ -105,7 +60,7 @@ function StoriesPage() {
             to="/contact"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90"
           >
-            Share your story <ArrowRight className="h-4 w-4" />
+            Share your feedback <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
