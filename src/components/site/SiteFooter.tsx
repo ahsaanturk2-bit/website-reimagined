@@ -2,7 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { Logo } from "@/components/site/SiteHeader";
-import { navLinks, org } from "@/lib/site";
+import { navLinks, org, socialLinks } from "@/lib/site";
+
+export const socialIcons = { Facebook, Instagram, LinkedIn: Linkedin } as const;
 
 export function SiteFooter() {
   return (
@@ -15,22 +17,21 @@ export function SiteFooter() {
             through {org.hospital}.
           </p>
           <div className="mt-6 flex gap-3">
-            {[
-              { href: org.social.facebook, label: "Facebook", Icon: Facebook },
-              { href: org.social.instagram, label: "Instagram", Icon: Instagram },
-              { href: org.social.linkedin, label: "LinkedIn", Icon: Linkedin },
-            ].map(({ href, label, Icon }) => (
+            {socialLinks.map(({ href, network }) => {
+              const Icon = socialIcons[network];
+              return (
               <a
-                key={label}
+                key={network}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={label}
+                aria-label={`WSPC on ${network}`}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/25 transition-colors hover:bg-primary-foreground hover:text-primary-deep"
               >
                 <Icon className="h-4 w-4" />
               </a>
-            ))}
+              );
+            })}
           </div>
         </div>
 

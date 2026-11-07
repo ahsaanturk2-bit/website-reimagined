@@ -40,11 +40,18 @@ export const org = {
   registrationAct: "Societies Registration Act XXI",
   auditor: "Ernst & Young",
   social: {
-    facebook: "https://facebook.com/wspc.org.pk",
-    linkedin: "https://pk.linkedin.com/company/welfare-society-for-patient-care",
-    instagram: "https://instagram.com/wspcdialysis",
+    facebook: "https://www.facebook.com/wspc.org.pk",
+    linkedin: "https://www.linkedin.com/company/welfare-society-for-patient-care",
+    instagram: "https://www.instagram.com/wspcdialysis/",
   },
 } as const;
+
+// Official WSPC social profiles, confirmed by WSPC.
+export const socialLinks = [
+  { network: "Instagram", handle: "@wspcdialysis", href: org.social.instagram },
+  { network: "Facebook", handle: "wspc.org.pk", href: org.social.facebook },
+  { network: "LinkedIn", handle: "Welfare Society for Patient Care", href: org.social.linkedin },
+] as const;
 
 export const zakatAccount = {
   bank: "United Bank Limited (UBL)",
