@@ -20,16 +20,16 @@ export function SiteFooter() {
             {socialLinks.map(({ href, network }) => {
               const Icon = socialIcons[network];
               return (
-              <a
-                key={network}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`WSPC on ${network}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/25 transition-colors hover:bg-primary-foreground hover:text-primary-deep"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
+                <a
+                  key={network}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`WSPC on ${network}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/25 transition-colors hover:bg-primary-foreground hover:text-primary-deep"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
               );
             })}
           </div>
