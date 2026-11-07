@@ -8,6 +8,21 @@ import bushraPortrait from "@/assets/bushra-mubarak.jpg.asset.json";
 import ghulamPortrait from "@/assets/ghulam-mustafa-aziz.jpg.asset.json";
 import fazlulPortrait from "@/assets/fazlul-rehman.jpg.asset.json";
 import salmaPortrait from "@/assets/salma-usmani.jpg.asset.json";
+import fectoLogo from "@/assets/logos/fecto-group.png.asset.json";
+import hblLogo from "@/assets/logos/hbl.png.asset.json";
+import marineLogo from "@/assets/logos/marine-group.png.asset.json";
+import meezanLogo from "@/assets/logos/meezan-bank.png.asset.json";
+import psoLogo from "@/assets/logos/pso.png.asset.json";
+import infaqLogo from "@/assets/logos/infaq-foundation.png.asset.json";
+import paklibyaLogo from "@/assets/logos/paklibya.png.asset.json";
+import ublLogo from "@/assets/logos/ubl.png.asset.json";
+import faysalLogo from "@/assets/logos/faysal-bank.png.asset.json";
+import alfalahLogo from "@/assets/logos/bank-alfalah.png.asset.json";
+import soortyLogo from "@/assets/logos/soorty.png.asset.json";
+import boschLogo from "@/assets/logos/bosch.png.asset.json";
+import alHabibLogo from "@/assets/logos/bank-al-habib.png.asset.json";
+import pblLogo from "@/assets/logos/pakistan-beverage.png.asset.json";
+import icareLogo from "@/assets/logos/icare-fund-america.png.asset.json";
 
 export const org = {
   name: "Welfare Society for Patient Care",
@@ -44,6 +59,7 @@ export const zakatAccount = {
 export const givingLinks = {
   usa: {
     partner: "i-Care Fund America",
+    logo: icareLogo.url,
     note: "Tax-deductible in the USA through the iCare donor-advised fund.",
     url: "https://i-care-america.org/charity/welfare-society-for-patient-care-wspc/",
   },
@@ -97,6 +113,24 @@ export const boardPortraits: Readonly<Partial<Record<(typeof board)[number]["nam
   "Mr Fazlul Rehman": fazlulPortrait.url,
   "Mrs Begum Salma Usmani": salmaPortrait.url,
 };
+
+// Supporter and partner logos supplied by WSPC.
+export const supporters = [
+  { name: "Meezan Bank", logo: meezanLogo.url },
+  { name: "Pakistan State Oil", logo: psoLogo.url },
+  { name: "HBL", logo: hblLogo.url },
+  { name: "UBL", logo: ublLogo.url },
+  { name: "Bank Alfalah", logo: alfalahLogo.url },
+  { name: "Faysal Bank", logo: faysalLogo.url },
+  { name: "Bank AL Habib", logo: alHabibLogo.url },
+  { name: "PakLibya", logo: paklibyaLogo.url },
+  { name: "INFAQ Foundation", logo: infaqLogo.url },
+  { name: "Fecto Group", logo: fectoLogo.url },
+  { name: "Marine Group", logo: marineLogo.url },
+  { name: "Soorty", logo: soortyLogo.url },
+  { name: "Bosch", logo: boschLogo.url },
+  { name: "Pakistan Beverage Limited", logo: pblLogo.url },
+] as const;
 
 export const testimonials = [
   {
