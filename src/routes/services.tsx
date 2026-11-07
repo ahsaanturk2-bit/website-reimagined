@@ -9,8 +9,8 @@ import {
   Stethoscope,
 } from "lucide-react";
 
-import consultImg from "@/assets/consultation.jpg";
 import { DonateBand } from "@/components/site/DonateBand";
+import { photos } from "@/lib/photos";
 import { PageHero, SectionHeading } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/services")({
@@ -152,10 +152,10 @@ function ServicesPage() {
       <section className="py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 md:grid-cols-2">
           <img
-            src={consultImg}
-            alt="A doctor going through test results with a patient"
-            width={1200}
-            height={912}
+            src={photos.patientDialysisWard.src}
+            alt={photos.patientDialysisWard.alt}
+            width={photos.patientDialysisWard.w}
+            height={photos.patientDialysisWard.h}
             loading="lazy"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-soft"
           />

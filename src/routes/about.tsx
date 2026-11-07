@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Eye, Target, HandHeart } from "lucide-react";
 
-import unitImg from "@/assets/dialysis-unit.jpg";
 import { DonateBand } from "@/components/site/DonateBand";
+import { photos } from "@/lib/photos";
 import { PageHero, SectionHeading } from "@/components/site/PageHero";
 import { org } from "@/lib/site";
 
@@ -73,10 +73,10 @@ function AboutPage() {
           </div>
         </div>
         <img
-          src={unitImg}
-          alt="WSPC dialysis treatment area"
-          width={1200}
-          height={912}
+          src={photos.wspcTeamHospital.src}
+          alt={photos.wspcTeamHospital.alt}
+          width={photos.wspcTeamHospital.w}
+          height={photos.wspcTeamHospital.h}
           loading="lazy"
           className="aspect-[4/3] w-full rounded-3xl object-cover shadow-soft"
         />
@@ -114,6 +114,25 @@ function AboutPage() {
               consultations and medical care.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-sand py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 md:grid-cols-[1fr_auto]">
+          <div>
+            <SectionHeading eyebrow="Registered & accountable" title="A registered society you can trust">
+              WSPC is registered under the {org.registrationAct} of 1860 and holds registration
+              number {org.registrationNo}. Our accounts are audited every year by {org.auditor}.
+            </SectionHeading>
+          </div>
+          <img
+            src={photos.registrationCertificate.src}
+            alt={photos.registrationCertificate.alt}
+            width={photos.registrationCertificate.w}
+            height={photos.registrationCertificate.h}
+            loading="lazy"
+            className="mx-auto w-full max-w-xs rotate-1 rounded-xl border border-border bg-card shadow-soft"
+          />
         </div>
       </section>
 
