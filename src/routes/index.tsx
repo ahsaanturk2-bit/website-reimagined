@@ -9,12 +9,10 @@ import {
   Stethoscope,
 } from "lucide-react";
 
-import heroImg from "@/assets/hero-dialysis-care.jpg";
-import unitImg from "@/assets/dialysis-unit.jpg";
-import consultImg from "@/assets/consultation.jpg";
-import communityImg from "@/assets/community-event.jpg";
 import { DonateBand } from "@/components/site/DonateBand";
 import { SectionHeading } from "@/components/site/PageHero";
+import { Supporters } from "@/components/site/Supporters";
+import { photos } from "@/lib/photos";
 import { certifications, impactStats, org, testimonials } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -68,10 +66,10 @@ function Index() {
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
         <img
-          src={heroImg}
-          alt="A nurse caring for an elderly patient during dialysis"
-          width={1600}
-          height={1072}
+          src={photos.childOnDialysis.src}
+          alt={photos.childOnDialysis.alt}
+          width={photos.childOnDialysis.w}
+          height={photos.childOnDialysis.h}
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-hero-overlay" />
@@ -123,10 +121,10 @@ function Index() {
       <section className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 md:grid-cols-2">
         <div className="relative">
           <img
-            src={unitImg}
-            alt="Dialysis machines and patient chairs in a clean treatment unit"
-            width={1200}
-            height={912}
+            src={photos.wspcTeamHospital.src}
+            alt={photos.wspcTeamHospital.alt}
+            width={photos.wspcTeamHospital.w}
+            height={photos.wspcTeamHospital.h}
             loading="lazy"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-soft"
           />
@@ -197,8 +195,8 @@ function Index() {
       <section className="mx-auto grid max-w-7xl gap-6 px-6 py-24 md:grid-cols-2">
         {[
           {
-            img: consultImg,
-            alt: "A doctor reviewing a kidney test report with a patient",
+            img: photos.patientDialysisWard.src,
+            alt: photos.patientDialysisWard.alt,
             eyebrow: "For patients",
             title: "Need dialysis but can't afford it?",
             text: "Contact us to find out about eligibility for free treatment at our Clifton centre.",
@@ -206,8 +204,8 @@ function Index() {
             to: "/contact" as const,
           },
           {
-            img: communityImg,
-            alt: "Volunteers and staff at a community health event",
+            img: photos.supportersVisit.src,
+            alt: photos.supportersVisit.alt,
             eyebrow: "For supporters",
             title: "Sponsor a patient's treatment",
             text: "Individuals, families and companies can sponsor dialysis for a patient each month.",
@@ -285,6 +283,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <Supporters />
 
       <DonateBand />
     </>
