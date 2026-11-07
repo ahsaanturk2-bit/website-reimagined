@@ -72,8 +72,9 @@ function DonatePage() {
   return (
     <>
       <PageHero eyebrow="Donate" title="Your Zakat can keep someone alive">
-        Kidney patients need dialysis two to three times a week, for life. Your gift pays for
-        sessions, medicines and care for patients who cannot pay.
+        For patients with kidney failure, dialysis is not optional — it is lifelong treatment, usually
+        three times a week. Your gift pays for sessions, medicines and care for patients who cannot
+        pay.
       </PageHero>
 
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-24 lg:grid-cols-[1.2fr_1fr]">
