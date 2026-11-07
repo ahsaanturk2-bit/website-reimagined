@@ -17,6 +17,14 @@ describe("WSPC published details", () => {
     expect(org.email).toBe("connect.wspc@gmail.com");
   });
 
+  it("links to WSPC's official Instagram, Facebook and LinkedIn pages", () => {
+    expect(org.social.instagram).toBe("https://www.instagram.com/wspcdialysis/");
+    expect(org.social.facebook).toBe("https://www.facebook.com/wspc.org.pk");
+    expect(org.social.linkedin).toBe(
+      "https://www.linkedin.com/company/welfare-society-for-patient-care",
+    );
+  });
+
   it("shows the registration number and founding year", () => {
     expect(org.registrationNo).toBe("PCP-2019/679");
     expect(org.founded).toBe("2009");
