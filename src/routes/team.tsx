@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { DonateBand } from "@/components/site/DonateBand";
 import { PageHero } from "@/components/site/PageHero";
-import { board, org } from "@/lib/site";
+import { board, boardPortraits, org } from "@/lib/site";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -48,9 +48,13 @@ function TeamPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid items-center gap-10 rounded-3xl border border-border bg-card p-8 md:grid-cols-[auto_1fr] md:p-12">
-          <div className="flex h-40 w-40 items-center justify-center rounded-full bg-secondary font-display text-5xl font-semibold text-primary">
-            {initials(founder.name)}
-          </div>
+          <img
+            src={boardPortraits[founder.name]}
+            alt={founder.name}
+            width={160}
+            height={160}
+            className="h-40 w-40 rounded-full bg-secondary object-cover"
+          />
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-highlight">
               {founder.role}
@@ -67,9 +71,20 @@ function TeamPage() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {rest.map((m) => (
             <div key={m.name} className="rounded-2xl border border-border bg-card p-7">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary font-display text-xl font-semibold text-primary">
-                {initials(m.name)}
-              </div>
+              {boardPortraits[m.name] ? (
+                <img
+                  src={boardPortraits[m.name]}
+                  alt={m.name}
+                  width={112}
+                  height={112}
+                  loading="lazy"
+                  className="h-28 w-28 rounded-full bg-secondary object-cover"
+                />
+              ) : (
+                <div className="flex h-28 w-28 items-center justify-center rounded-full bg-secondary font-display text-3xl font-semibold text-primary">
+                  {initials(m.name)}
+                </div>
+              )}
               <h3 className="mt-5 text-lg font-semibold text-primary-deep">{m.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
             </div>

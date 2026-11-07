@@ -2,6 +2,13 @@
 // Keep every public-facing detail here so it can be verified and updated in one place.
 // Source: WSPC's own website text and LaunchGood / i-Care America pages supplied by WSPC.
 
+import iffatPortrait from "@/assets/iffat-yazdani.jpg.asset.json";
+import mariyahPortrait from "@/assets/mariyah-duggan.jpg.asset.json";
+import bushraPortrait from "@/assets/bushra-mubarak.jpg.asset.json";
+import ghulamPortrait from "@/assets/ghulam-mustafa-aziz.jpg.asset.json";
+import fazlulPortrait from "@/assets/fazlul-rehman.jpg.asset.json";
+import salmaPortrait from "@/assets/salma-usmani.jpg.asset.json";
+
 export const org = {
   name: "Welfare Society for Patient Care",
   short: "WSPC",
@@ -80,6 +87,16 @@ export const board = [
   { name: "Mr John Corea", role: "Trustee" },
   { name: "Mrs Begum Salma Usmani", role: "Trustee" },
 ] as const;
+
+// Original portraits from WSPC's website, matched to the supplied board screenshots.
+export const boardPortraits: Readonly<Partial<Record<(typeof board)[number]["name"], string>>> = {
+  "Prof. Dr Iffat Yazdani": iffatPortrait.url,
+  "Dr Mariyah Duggan": mariyahPortrait.url,
+  "Dr Bushra Mubarak": bushraPortrait.url,
+  "Mr Ghulam Mustafa Aziz": ghulamPortrait.url,
+  "Mr Fazlul Rehman": fazlulPortrait.url,
+  "Mrs Begum Salma Usmani": salmaPortrait.url,
+};
 
 export const testimonials = [
   {
