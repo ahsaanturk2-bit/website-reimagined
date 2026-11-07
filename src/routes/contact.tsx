@@ -3,7 +3,8 @@ import { useState, type FormEvent } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 import { PageHero } from "@/components/site/PageHero";
-import { org } from "@/lib/site";
+import { socialIcons } from "@/components/site/SiteFooter";
+import { org, socialLinks } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -72,6 +73,32 @@ function ContactPage() {
               </div>
             </div>
           ))}
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Follow us</p>
+            <ul className="mt-4 space-y-3">
+              {socialLinks.map(({ network, handle, href }) => {
+                const Icon = socialIcons[network];
+                return (
+                  <li key={network}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group flex items-center gap-3 font-medium text-primary-deep"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                      <span>
+                        <span className="block text-sm text-muted-foreground">{network}</span>
+                        <span className="group-hover:underline">{handle}</span>
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
           <div className="overflow-hidden rounded-2xl border border-border">
             <iframe
               title="WSPC location map"
