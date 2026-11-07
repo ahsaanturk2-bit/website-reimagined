@@ -1,8 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Check, Copy, Globe, Landmark, Building2, HeartHandshake, ExternalLink } from "lucide-react";
+import {
+  Check,
+  Copy,
+  Globe,
+  Landmark,
+  Building2,
+  HeartHandshake,
+  ExternalLink,
+} from "lucide-react";
 
 import { PageHero, SectionHeading } from "@/components/site/PageHero";
+import { photos } from "@/lib/photos";
 import { givingLinks, givingTiers, org, zakatAccount } from "@/lib/site";
 
 export const Route = createFileRoute("/donate")({
@@ -72,9 +81,9 @@ function DonatePage() {
   return (
     <>
       <PageHero eyebrow="Donate" title="Your Zakat can keep someone alive">
-        For patients with kidney failure, dialysis is not optional — it is lifelong treatment, usually
-        three times a week. Your gift pays for sessions, medicines and care for patients who cannot
-        pay.
+        For patients with kidney failure, dialysis is not optional — it is lifelong treatment,
+        usually three times a week. Your gift pays for sessions, medicines and care for patients who
+        cannot pay.
       </PageHero>
 
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-24 lg:grid-cols-[1.2fr_1fr]">
@@ -93,7 +102,10 @@ function DonatePage() {
             <CopyRow label="Account title" value={zakatAccount.title} />
             <CopyRow label="Account number" value={zakatAccount.accountNumber} />
             <CopyRow label="IBAN" value={zakatAccount.iban} />
-            <CopyRow label="Branch" value={`${zakatAccount.branch} (code ${zakatAccount.branchCode})`} />
+            <CopyRow
+              label="Branch"
+              value={`${zakatAccount.branch} (code ${zakatAccount.branchCode})`}
+            />
           </div>
           <p className="mt-6 rounded-xl bg-muted p-4 text-sm text-muted-foreground">
             After transferring, please email your receipt to{" "}
@@ -112,43 +124,71 @@ function DonatePage() {
               Overseas Pakistanis and international friends can give online in a few minutes.
             </p>
             <ul className="mt-6 space-y-4 text-sm">
-              <li className="rounded-xl bg-primary-foreground/10 p-4">
-                <p className="font-semibold">United States</p>
-                <p className="mt-1 text-primary-foreground/75">
-                  {givingLinks.usa.partner}. {givingLinks.usa.note}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
+              <li className="overflow-hidden rounded-xl bg-primary-foreground/10">
+                <img
+                  src={photos.donateUsa.src}
+                  alt={photos.donateUsa.alt}
+                  width={photos.donateUsa.w}
+                  height={photos.donateUsa.h}
+                  loading="lazy"
+                  className="aspect-[16/6] w-full object-cover"
+                />
+                <div className="p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="font-semibold">United States</p>
+                    <img
+                      src={givingLinks.usa.logo}
+                      alt={givingLinks.usa.partner}
+                      loading="lazy"
+                      className="h-9 w-auto rounded-md bg-card p-1"
+                    />
+                  </div>
+                  <p className="mt-1 text-primary-foreground/75">
+                    {givingLinks.usa.partner}. {givingLinks.usa.note}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <a
+                      href={givingLinks.usa.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-highlight px-4 py-2 font-semibold text-highlight-foreground hover:opacity-90"
+                    >
+                      Donate now <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href={givingLinks.usaFundraiser.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/30 px-4 py-2 font-medium hover:bg-primary-foreground/10"
+                    >
+                      {givingLinks.usaFundraiser.title} <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li className="overflow-hidden rounded-xl bg-primary-foreground/10">
+                <img
+                  src={photos.donateUk.src}
+                  alt={photos.donateUk.alt}
+                  width={photos.donateUk.w}
+                  height={photos.donateUk.h}
+                  loading="lazy"
+                  className="aspect-[16/6] w-full object-cover"
+                />
+                <div className="p-4">
+                  <p className="font-semibold">United Kingdom</p>
+                  <p className="mt-1 text-primary-foreground/75">
+                    Give through our {givingLinks.uk.partner} appeal, “{givingLinks.uk.title}”.
+                  </p>
                   <a
-                    href={givingLinks.usa.url}
+                    href={givingLinks.uk.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-highlight px-4 py-2 font-semibold text-highlight-foreground hover:opacity-90"
+                    className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-highlight px-4 py-2 font-semibold text-highlight-foreground hover:opacity-90"
                   >
                     Donate now <ExternalLink className="h-3.5 w-3.5" />
                   </a>
-                  <a
-                    href={givingLinks.usaFundraiser.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/30 px-4 py-2 font-medium hover:bg-primary-foreground/10"
-                  >
-                    {givingLinks.usaFundraiser.title} <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
                 </div>
-              </li>
-              <li className="rounded-xl bg-primary-foreground/10 p-4">
-                <p className="font-semibold">United Kingdom</p>
-                <p className="mt-1 text-primary-foreground/75">
-                  Give through our {givingLinks.uk.partner} appeal, “{givingLinks.uk.title}”.
-                </p>
-                <a
-                  href={givingLinks.uk.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-highlight px-4 py-2 font-semibold text-highlight-foreground hover:opacity-90"
-                >
-                  Donate now <ExternalLink className="h-3.5 w-3.5" />
-                </a>
               </li>
             </ul>
           </div>
@@ -166,7 +206,10 @@ function DonatePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <SectionHeading eyebrow="What your gift provides" title="Every contribution directly funds treatment">
+        <SectionHeading
+          eyebrow="What your gift provides"
+          title="Every contribution directly funds treatment"
+        >
           Last year, supporters raised £4,500 (about PKR 1.57 million) — enough for nearly 190
           life-saving dialysis sessions. Here is what each gift pays for.
         </SectionHeading>
