@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Keep all organisation facts (contact, bank details, stats, nav links) in `src/lib/site.ts`; pages import from it so details are updated in one place.
+- Shared site chrome (header, footer, page heroes, donate band) lives in `src/components/site/` and is rendered from `__root.tsx`, so every page gets the same layout.
