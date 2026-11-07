@@ -2,13 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { X } from "lucide-react";
 
-import heroImg from "@/assets/hero-dialysis-care.jpg";
-import unitImg from "@/assets/dialysis-unit.jpg";
-import consultImg from "@/assets/consultation.jpg";
-import communityImg from "@/assets/community-event.jpg";
-import motherSonImg from "@/assets/mother-son.jpg";
-import physioImg from "@/assets/physiotherapy.jpg";
 import { PageHero } from "@/components/site/PageHero";
+import { galleryPhotos as photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -31,16 +26,7 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-const photos = [
-  { src: heroImg, caption: "Care in the dialysis ward", tag: "Patients", w: 1600, h: 1072 },
-  { src: unitImg, caption: "Our dialysis unit", tag: "Facility", w: 1200, h: 912 },
-  { src: communityImg, caption: "Community health camp", tag: "Events", w: 1200, h: 912 },
-  { src: motherSonImg, caption: "Families by their side", tag: "Patients", w: 1200, h: 912 },
-  { src: consultImg, caption: "Specialist consultations", tag: "Facility", w: 1200, h: 912 },
-  { src: physioImg, caption: "Physiotherapy sessions", tag: "Patients", w: 1200, h: 912 },
-];
-
-const tags = ["All", "Patients", "Facility", "Events"] as const;
+const tags = ["All", "Patients", "Team", "Events"] as const;
 
 function GalleryPage() {
   const [filter, setFilter] = useState<(typeof tags)[number]>("All");
@@ -84,7 +70,7 @@ function GalleryPage() {
             >
               <img
                 src={p.src}
-                alt={p.caption}
+                alt={p.alt}
                 width={p.w}
                 height={p.h}
                 loading="lazy"
@@ -115,7 +101,7 @@ function GalleryPage() {
             <X className="h-5 w-5" />
           </button>
           <figure className="max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <img src={active.src} alt={active.caption} className="max-h-[80vh] w-auto rounded-2xl" />
+            <img src={active.src} alt={active.alt} className="max-h-[80vh] w-auto rounded-2xl" />
             <figcaption className="mt-3 text-center text-primary-foreground">
               {active.caption}
             </figcaption>

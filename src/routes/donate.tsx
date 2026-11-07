@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Check, Copy, Globe, Landmark, Building2, HeartHandshake, ExternalLink } from "lucide-react";
 
 import { PageHero, SectionHeading } from "@/components/site/PageHero";
+import { photos } from "@/lib/photos";
 import { givingLinks, givingTiers, org, zakatAccount } from "@/lib/site";
 
 export const Route = createFileRoute("/donate")({
@@ -112,8 +113,25 @@ function DonatePage() {
               Overseas Pakistanis and international friends can give online in a few minutes.
             </p>
             <ul className="mt-6 space-y-4 text-sm">
-              <li className="rounded-xl bg-primary-foreground/10 p-4">
-                <p className="font-semibold">United States</p>
+              <li className="overflow-hidden rounded-xl bg-primary-foreground/10">
+                <img
+                  src={photos.donateUsa.src}
+                  alt={photos.donateUsa.alt}
+                  width={photos.donateUsa.w}
+                  height={photos.donateUsa.h}
+                  loading="lazy"
+                  className="aspect-[16/6] w-full object-cover"
+                />
+                <div className="p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="font-semibold">United States</p>
+                  <img
+                    src={givingLinks.usa.logo}
+                    alt={givingLinks.usa.partner}
+                    loading="lazy"
+                    className="h-9 w-auto rounded-md bg-card p-1"
+                  />
+                </div>
                 <p className="mt-1 text-primary-foreground/75">
                   {givingLinks.usa.partner}. {givingLinks.usa.note}
                 </p>
@@ -135,8 +153,18 @@ function DonatePage() {
                     {givingLinks.usaFundraiser.title} <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 </div>
+                </div>
               </li>
-              <li className="rounded-xl bg-primary-foreground/10 p-4">
+              <li className="overflow-hidden rounded-xl bg-primary-foreground/10">
+                <img
+                  src={photos.donateUk.src}
+                  alt={photos.donateUk.alt}
+                  width={photos.donateUk.w}
+                  height={photos.donateUk.h}
+                  loading="lazy"
+                  className="aspect-[16/6] w-full object-cover"
+                />
+                <div className="p-4">
                 <p className="font-semibold">United Kingdom</p>
                 <p className="mt-1 text-primary-foreground/75">
                   Give through our {givingLinks.uk.partner} appeal, “{givingLinks.uk.title}”.
@@ -149,6 +177,7 @@ function DonatePage() {
                 >
                   Donate now <ExternalLink className="h-3.5 w-3.5" />
                 </a>
+                </div>
               </li>
             </ul>
           </div>
