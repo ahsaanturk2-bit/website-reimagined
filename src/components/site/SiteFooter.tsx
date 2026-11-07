@@ -11,8 +11,8 @@ export function SiteFooter() {
         <div>
           <Logo inverted />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/75">
-            A non-profit welfare society providing free dialysis, medicines and care to kidney
-            patients who cannot afford treatment — in association with {org.hospital}.
+            {org.tagline}. Free dialysis and medical care for patients who cannot afford treatment,
+            through {org.hospital}.
           </p>
           <div className="mt-6 flex gap-3">
             {[
@@ -79,7 +79,7 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} {org.name}. All rights reserved.
           </span>
-          <span>Registered non-profit · Karachi, Pakistan</span>
+          <span>Registered non-profit organisation in Pakistan ({org.registrationNo})</span>
         </div>
       </div>
     </footer>

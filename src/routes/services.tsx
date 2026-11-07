@@ -4,8 +4,8 @@ import {
   Ambulance,
   Droplets,
   HeartPulse,
+  Hospital,
   Music,
-  Pill,
   Stethoscope,
 } from "lucide-react";
 
@@ -20,12 +20,12 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Free dialysis, medicines, nephrology consultations, physiotherapy and emergency care for underprivileged kidney patients in Clifton, Karachi.",
+          "Free dialysis, outpatient consultations, physiotherapy, music therapy and a 24-hour emergency service for kidney patients in Clifton, Karachi.",
       },
       { property: "og:title", content: "What We Do — Free Dialysis & Kidney Care | WSPC" },
       {
         property: "og:description",
-        content: "The treatment and support WSPC provides to kidney patients who cannot afford care.",
+        content: "Free, high-quality dialysis and holistic care for patients who cannot afford treatment.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -38,32 +38,43 @@ const services = [
   {
     Icon: Droplets,
     title: "Free dialysis treatment",
-    text: "Our core programme. Eligible patients receive regular haemodialysis — typically two to three sessions a week — completely free of charge.",
-  },
-  {
-    Icon: Pill,
-    title: "Medicines & medical support",
-    text: "Help with essential medicines, injections, lab tests and other treatment costs that come with kidney disease.",
+    text: "Our primary focus. Patients with chronic kidney disease receive regular dialysis free of charge, along with the medicines they need.",
   },
   {
     Icon: Stethoscope,
-    title: "Nephrology consultations",
-    text: "Outpatient consultations with kidney specialists, ongoing monitoring and adjustment of each patient's care plan.",
+    title: "Outpatient consultancy",
+    text: "Consultations with doctors, ongoing monitoring and adjustment of each patient's care.",
+  },
+  {
+    Icon: Hospital,
+    title: "Medical & surgical treatment",
+    text: "For sponsored patients we also cover medical and surgical treatment at Clifton Kidney & General Hospital.",
   },
   {
     Icon: HeartPulse,
     title: "Physiotherapy",
-    text: "Gentle rehabilitation to help dialysis patients stay mobile, strong and independent.",
+    text: "Rehabilitation to help dialysis patients stay mobile, strong and independent.",
   },
   {
     Icon: Music,
     title: "Music therapy",
-    text: "Long hours on a dialysis machine are hard. Music therapy helps patients relax and cope emotionally.",
+    text: "Long hours on a dialysis machine are hard. Music therapy helps patients relax and cope.",
   },
   {
     Icon: Ambulance,
-    title: "Emergency medical services",
-    text: "Support for patients when complications arise and urgent care is needed.",
+    title: "24-hour emergency service",
+    text: "Our facility has a 24-hour emergency medical service, so critical treatment is available at any time.",
+  },
+];
+
+const dialysisTypes = [
+  {
+    title: "Haemodialysis",
+    text: "A machine and a special filter called a dialyzer (an artificial kidney) remove waste, extra fluid and toxins from the blood. Blood is drawn from the body, cleaned through the dialyzer and returned. It is usually done in a dialysis centre three times a week.",
+  },
+  {
+    title: "Peritoneal dialysis",
+    text: "Uses the body's own peritoneal membrane in the abdomen as a filter. A cleansing fluid called dialysate is passed into the abdomen through a catheter, absorbs toxins and is then drained out. It can be done at home during the day (CAPD) or overnight by machine (APD).",
   },
 ];
 
@@ -76,8 +87,9 @@ const steps = [
 function ServicesPage() {
   return (
     <>
-      <PageHero eyebrow="What we do" title="Free dialysis and complete kidney care">
-        From the dialysis chair to medicines and emotional support, we look after the whole patient.
+      <PageHero eyebrow="What we do" title="Free, high-quality healthcare for those in need">
+        We are committed to serving humanity. Our main focus is dialysis for people with chronic
+        kidney disease — and we look after the whole patient, not just their kidneys.
       </PageHero>
 
       <section className="mx-auto max-w-7xl px-6 py-24">
@@ -105,13 +117,43 @@ function ServicesPage() {
             </div>
           ))}
         </div>
+
+        <div className="mt-12 rounded-3xl bg-sand p-8 md:p-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Our goal</p>
+          <p className="mt-3 max-w-3xl font-display text-2xl leading-snug text-primary-deep md:text-3xl">
+            A dedicated kidney treatment hospital for the growing number of patients who need us.
+          </p>
+          <p className="mt-4 max-w-3xl text-muted-foreground">
+            We envision a healthier, more equitable society where essential medical care is
+            available to all, regardless of financial status — and we keep expanding our services
+            and resources to get there.
+          </p>
+        </div>
       </section>
 
-      <section className="bg-sand py-24">
+      <section className="bg-secondary/60 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading eyebrow="Understanding treatment" title="What is dialysis?">
+            When the kidneys fail (end-stage renal disease), they can no longer filter waste, extra
+            fluid and toxins from the blood. Dialysis takes over this job. It is not a cure, but it
+            keeps patients alive — long-term, or while they wait for a kidney transplant.
+          </SectionHeading>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {dialysisTypes.map((d) => (
+              <div key={d.title} className="rounded-2xl border border-border bg-card p-8">
+                <h3 className="text-2xl font-semibold text-primary-deep">{d.title}</h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">{d.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 md:grid-cols-2">
           <img
             src={consultImg}
-            alt="A kidney specialist going through test results with a patient"
+            alt="A doctor going through test results with a patient"
             width={1200}
             height={912}
             loading="lazy"

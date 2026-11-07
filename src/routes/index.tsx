@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Droplets, HeartPulse, Pill, Stethoscope, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Droplets,
+  HeartPulse,
+  Quote,
+  ShieldCheck,
+  Siren,
+  Stethoscope,
+} from "lucide-react";
 
 import heroImg from "@/assets/hero-dialysis-care.jpg";
 import unitImg from "@/assets/dialysis-unit.jpg";
@@ -7,7 +15,7 @@ import consultImg from "@/assets/consultation.jpg";
 import communityImg from "@/assets/community-event.jpg";
 import { DonateBand } from "@/components/site/DonateBand";
 import { SectionHeading } from "@/components/site/PageHero";
-import { impactStats, org } from "@/lib/site";
+import { certifications, impactStats, org, testimonials } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,22 +43,22 @@ const services = [
   {
     Icon: Droplets,
     title: "Free dialysis",
-    text: "Regular haemodialysis sessions for patients who cannot afford ongoing treatment.",
-  },
-  {
-    Icon: Pill,
-    title: "Medicines & support",
-    text: "Essential medication, injections and related treatment expenses covered for deserving patients.",
+    text: "Regular dialysis, with medicines, for patients with chronic kidney disease who cannot afford it.",
   },
   {
     Icon: Stethoscope,
-    title: "Consultations",
-    text: "Outpatient nephrology consultations and continuous follow-up care.",
+    title: "Outpatient consultancy",
+    text: "Doctor consultations and ongoing follow-up for every patient.",
   },
   {
     Icon: HeartPulse,
     title: "Holistic care",
-    text: "Physiotherapy, music therapy and emergency medical services for patient wellbeing.",
+    text: "Physiotherapy and music therapy to support patients' strength and wellbeing.",
+  },
+  {
+    Icon: Siren,
+    title: "24-hour emergency",
+    text: "A round-the-clock emergency medical service, so critical treatment is always within reach.",
   },
 ];
 
@@ -73,11 +81,11 @@ function Index() {
               <ShieldCheck className="h-4 w-4" /> Zakat eligible · Non-profit
             </p>
             <h1 className="mt-6 text-4xl font-semibold leading-[1.05] md:text-6xl lg:text-7xl">
-              No kidney patient should go without dialysis.
+              {org.tagline}.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/85">
-              {org.name} gives free, life-saving dialysis and care to patients in Karachi who
-              cannot afford treatment — week after week.
+              {org.name} gives free, high-quality dialysis and medical care to patients in Karachi
+              who cannot afford treatment — week after week.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
@@ -129,16 +137,15 @@ function Index() {
           </div>
         </div>
         <div>
-          <SectionHeading eyebrow="Who we are" title="A lifeline for kidney patients since 2010">
-            Founded by {org.founder}, WSPC is a Karachi-based welfare society working alongside{" "}
-            {org.hospital}. We fund and deliver dialysis for patients — from children to the
-            elderly — who come to us from across Pakistan with nowhere else to turn.
+          <SectionHeading eyebrow="Who we are" title={`A lifeline for kidney patients since ${org.founded}`}>
+            Founded by {org.founder}, WSPC is a trusted Karachi NGO. We sponsor patients through{" "}
+            {org.hospital}, covering their dialysis, medical and surgical treatment.
           </SectionHeading>
           <ul className="mt-8 space-y-3 text-foreground/85">
             {[
-              "Dialysis is needed two to three times every week, for life — or until a transplant.",
-              "Most of our patients' families cannot cover even a single session.",
-              "Every rupee donated goes towards treatment, medicines and patient care.",
+              "Dialysis is lifelong treatment — usually three sessions a week, or until a transplant.",
+              "Missing even a few sessions can lead to rapid deterioration and serious complications.",
+              `Every contribution directly funds treatment, and our finances are audited annually by ${org.auditor}.`,
             ].map((t) => (
               <li key={t} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-highlight" />
@@ -234,21 +241,40 @@ function Index() {
         ))}
       </section>
 
+      {/* Feedback */}
+      <section className="bg-sand py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionHeading eyebrow="Feedback from patients" title="What patients and families say" />
+            <Link
+              to="/stories"
+              className="inline-flex items-center gap-2 font-semibold text-primary hover:gap-3"
+            >
+              All feedback <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="flex flex-col rounded-3xl bg-card p-8 shadow-soft">
+                <Quote className="h-8 w-8 text-highlight" />
+                <blockquote className="mt-4 flex-1 leading-relaxed text-foreground/85">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-6 font-semibold text-primary-deep">{t.name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Trust */}
       <section className="border-y border-border bg-muted py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Registered & certified
+            Registered & certified · {org.registrationNo}
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {[
-              "Pakistan Centre for Philanthropy",
-              "Shahrah certified",
-              "ISO certified",
-              "Sindh Health Care Commission",
-              "Tax exempt",
-              "Registered society",
-            ].map((t) => (
+            {certifications.map((t) => (
               <span
                 key={t}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-primary-deep"
